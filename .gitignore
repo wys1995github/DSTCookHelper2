@@ -2,6 +2,7 @@
 .idea
 .settings
 /target
+/src/test
 .classpath
 .project
 build.fxbuild
