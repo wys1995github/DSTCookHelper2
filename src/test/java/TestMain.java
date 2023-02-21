@@ -47,7 +47,6 @@ public class TestMain extends Application {
 						if(empty == false && item != null) {
 							HBox hbox = new HBox();
 							Label label = new Label(item);
-//							label
 							hbox.getChildren().add(label);
 							hbox.setAlignment(Pos.CENTER);
 							this.setGraphic(hbox);
@@ -87,10 +86,9 @@ public class TestMain extends Application {
 							HBox hbox = new HBox();
 							Label label = new Label(item);
 							ImageView imageView = new ImageView();
-							Image image = new Image("file:C://chat/1.gif");
-							new Image(getClass().getResourceAsStream("manage.png"),40,40,false,false); 
-							imageView.setImage(image);
-							
+//							Image image = new Image("file:C://chat/1.gif");
+//							new Image(getClass().getResourceAsStream("manage.png"),40,40,false,false); 
+//							imageView.setImage(image);
 							label.setGraphic(imageView);
 							hbox.getChildren().add(label);
 							hbox.setAlignment(Pos.CENTER);
