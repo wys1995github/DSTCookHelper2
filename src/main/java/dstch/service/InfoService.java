@@ -34,4 +34,8 @@ public class InfoService{
 		}
 	}
 	
+	public static void main(String[] args) {
+		new InfoService().getInfoData();
+	}
+	
 }
