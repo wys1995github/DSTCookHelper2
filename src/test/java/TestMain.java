@@ -9,8 +9,10 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -29,7 +31,7 @@ public class TestMain extends Application {
 		//表格列宽宽度设置
 		item1Col.setMinWidth(100);
 		item2Col.setMinWidth(100);
-		item3Col.setMinWidth(100);
+		item3Col.setMinWidth(300);
 		item4Col.setMinWidth(100);
 		//确定数据导入的列
 		item1Col.setCellValueFactory(new PropertyValueFactory<>("item1"));
@@ -83,16 +85,16 @@ public class TestMain extends Application {
 					protected void updateItem(String item, boolean empty) {
 						super.updateItem(item, empty);
 						if(empty == false && item != null) {
-							HBox hbox = new HBox();
-							Label label = new Label(item);
+							VBox vbox = new VBox();
+							Label labelImg = new Label();
 							ImageView imageView = new ImageView();
-//							Image image = new Image("file:C://chat/1.gif");
-//							new Image(getClass().getResourceAsStream("manage.png"),40,40,false,false); 
-//							imageView.setImage(image);
-							label.setGraphic(imageView);
-							hbox.getChildren().add(label);
-							hbox.setAlignment(Pos.CENTER);
-							this.setGraphic(hbox);
+							Image image = new Image(this.getClass().getResourceAsStream("/image/pot.png"), 80, 80, false, false); 
+							imageView.setImage(image);
+							labelImg.setGraphic(imageView);
+							Label labelText = new Label(item);
+							vbox.getChildren().addAll(labelImg, labelText);
+							vbox.setAlignment(Pos.CENTER);
+							this.setGraphic(vbox);
 						}
 					}
 				};
@@ -125,9 +127,9 @@ public class TestMain extends Application {
 		tableView.getColumns().add(item3Col);
 		tableView.getColumns().add(item4Col);
 		tableView.setItems(data);
-		Scene scene = new Scene(tableView, 400, 200);
+		Scene scene = new Scene(tableView, 1000, 800);
 		primaryStage.setTitle("合成列表");
-		primaryStage.setResizable(false);
+		primaryStage.setResizable(true);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

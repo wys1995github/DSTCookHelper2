@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.textArea{
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+}
+ 
+.textArea.content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+ 
+.textArea:focused {
+    -fx-background-color: transparent, white, transparent, white;
+}
