@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -236,13 +235,10 @@ public class MainView extends Application {
 						super.updateItem(item, empty);
 						if(empty == false && item != null) {
 							HBox hbox = new HBox();
-							TextArea textArea = new TextArea(item);
-							textArea.setStyle("-fx-focus-color: transparent; "
-								+ "-fx-border-style: none; "
-								+ "-fx-background-radius: 0.0px; "
-								+ "-fx-border-radius: 0.0px; ");
-							textArea.setEditable(false);
-							hbox.getChildren().add(textArea);
+							Label label = new Label(item);
+							label.setWrapText(true);//设置换行
+							label.setMaxHeight(40);
+							hbox.getChildren().add(label);
 							hbox.setAlignment(Pos.CENTER);
 							this.setGraphic(hbox);
 						}
@@ -261,6 +257,8 @@ public class MainView extends Application {
 						if(empty == false && item != null) {
 							HBox hbox = new HBox();
 							Label label = new Label(item);
+							label.setWrapText(true);//设置换行
+							label.setMaxHeight(40);
 							hbox.getChildren().add(label);
 							hbox.setAlignment(Pos.CENTER);
 							this.setGraphic(hbox);
