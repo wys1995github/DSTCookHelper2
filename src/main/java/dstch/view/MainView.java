@@ -284,6 +284,6 @@ public class MainView extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		launch(args);//启动
 	}
 }
