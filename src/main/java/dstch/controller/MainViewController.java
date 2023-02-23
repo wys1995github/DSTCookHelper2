@@ -5,7 +5,6 @@ import java.io.InputStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
@@ -46,6 +45,7 @@ public class MainViewController {
         itemList.add("生命值");
         priorityBox.setItems(itemList);
         priorityBox.getSelectionModel().selectFirst();//默认选中第一项
+        //主页面下方料理grid显示图片
         mainGrid.add(getImageView("/image/pot.png"), 0, 0);
         mainGrid.add(getImageView("/image/pot.png"), 0, 1);
         mainGrid.add(getImageView("/image/icon.png"), 0, 2);
