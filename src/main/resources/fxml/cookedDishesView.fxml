@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="196.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="返回" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="309.0" />
+      <Label id="cookTime" layoutX="406.0" layoutY="123.0" text="Label" />
+      <Label id="qualityTime" layoutX="404.0" layoutY="63.0" text="Label" />
+      <Label id="cookedDishesName" layoutX="76.0" layoutY="151.0" text="Label" />
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="176.0" layoutY="102.0">
+         <image>
+            <Image url="@../image/饥饿度.png" />
+         </image>
+      </ImageView>
+      <Label id="hunger" layoutX="194.0" layoutY="151.0" text="Label">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="223.0" layoutY="24.0">
+         <image>
+            <Image url="@../image/生命值.png" />
+         </image>
+      </ImageView>
+      <Label id="health" layoutX="243.0" layoutY="72.0" text="Label">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="13.0" />
+         </font></Label>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="273.0" layoutY="102.0">
+         <image>
+            <Image url="@../image/精神度.png" />
+         </image>
+      </ImageView>
+      <Label id="sanity" layoutX="292.0" layoutY="150.0" text="Label">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="357.0" layoutY="49.0">
+         <image>
+            <Image url="@../image/腐烂物.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="360.0" layoutY="109.0">
+         <image>
+            <Image url="@../image/pot.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="442.0" layoutY="65.0" text="天" />
+      <Label layoutX="442.0" layoutY="122.0" text="秒" />
+      <ImageView id="cookedDishesimage" fitHeight="91.0" fitWidth="130.0" layoutX="34.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="199.0" layoutY="190.0" text="增益：" />
+      <Label layoutX="307.0" layoutY="190.0" text="备注：" />
+      <Label id="buff" layoutX="243.0" layoutY="190.0" text="Label" />
+      <Label id="comment" layoutX="357.0" layoutY="190.0" text="Label" />
+      <GridPane layoutX="34.0" layoutY="219.0" prefHeight="90.0" prefWidth="414.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
