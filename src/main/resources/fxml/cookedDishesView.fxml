@@ -12,34 +12,39 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="196.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="返回" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="309.0" />
-      <Label id="cookTime" layoutX="406.0" layoutY="123.0" text="Label" />
-      <Label id="qualityTime" layoutX="404.0" layoutY="63.0" text="Label" />
-      <Label id="cookedDishesName" layoutX="76.0" layoutY="151.0" text="Label" />
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="176.0" layoutY="102.0">
+      <ImageView fitHeight="366.0" fitWidth="482.0" layoutX="-4.0" layoutY="-5.0">
+         <image>
+            <Image url="@../image/合成界面背景.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="196.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="返回" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="309.0" />
+      <Label id="cookTime" fx:id="cookTime" layoutX="406.0" layoutY="123.0" text="Label" />
+      <Label id="qualityTime" fx:id="qualityTime" layoutX="404.0" layoutY="63.0" text="Label" />
+      <Label id="cookedDishesName" fx:id="cookedDishesName" layoutX="76.0" layoutY="151.0" text="Label" />
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="176.0" layoutY="91.0">
          <image>
             <Image url="@../image/饥饿度.png" />
          </image>
       </ImageView>
-      <Label fx:id="hunger" layoutX="194.0" layoutY="151.0" text="Label">
+      <Label fx:id="cookedDisheshunger" layoutX="193.0" layoutY="141.0" text="Label">
          <font>
             <Font size="13.0" />
          </font></Label>
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="223.0" layoutY="24.0">
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="227.0" layoutY="19.0">
          <image>
             <Image url="@../image/生命值.png" />
          </image>
       </ImageView>
-      <Label id="health" layoutX="243.0" layoutY="72.0" text="Label">
+      <Label id="health" fx:id="cookedDishesHealth" layoutX="245.0" layoutY="67.0" text="Label">
          <font>
             <Font name="Microsoft YaHei Bold" size="13.0" />
          </font></Label>
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="273.0" layoutY="102.0">
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="273.0" layoutY="93.0">
          <image>
             <Image url="@../image/精神度.png" />
          </image>
       </ImageView>
-      <Label id="sanity" layoutX="292.0" layoutY="150.0" text="Label">
+      <Label id="sanity" fx:id="cookedDishesSanity" layoutX="292.0" layoutY="141.0" text="Label">
          <font>
             <Font size="13.0" />
          </font></Label>
@@ -55,12 +60,10 @@
       </ImageView>
       <Label layoutX="442.0" layoutY="65.0" text="天" />
       <Label layoutX="442.0" layoutY="122.0" text="秒" />
-      <ImageView id="cookedDishesimage" fitHeight="91.0" fitWidth="130.0" layoutX="34.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="199.0" layoutY="190.0" text="增益：" />
-      <Label layoutX="307.0" layoutY="190.0" text="备注：" />
-      <Label id="buff" layoutX="243.0" layoutY="190.0" text="Label" />
-      <Label id="comment" layoutX="357.0" layoutY="190.0" text="Label" />
-      <GridPane layoutX="34.0" layoutY="219.0" prefHeight="90.0" prefWidth="414.0">
+      <ImageView id="cookedDishesimage" fx:id="cookedDishesImage" fitHeight="91.0" fitWidth="130.0" layoutX="34.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+      <Label id="buff" fx:id="buff" layoutX="245.0" layoutY="178.0" text="Label" />
+      <Label id="comment" fx:id="comment" layoutX="372.0" layoutY="176.0" text="Label" />
+      <GridPane fx:id="cookedDishesGrid" layoutX="30.0" layoutY="219.0" prefHeight="90.0" prefWidth="414.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -69,13 +72,23 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="7.0" prefWidth="7.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="85.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="194.0" layoutY="169.0">
+         <image>
+            <Image url="@../image/增益%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="318.0" layoutY="167.0">
+         <image>
+            <Image url="@../image/备注%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

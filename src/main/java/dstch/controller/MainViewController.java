@@ -31,6 +31,7 @@ public class MainViewController {
 
     @FXML
     private GridPane mainGrid;
+    
 
     public void initialize() {
     	//设置料理和食材按钮互斥
