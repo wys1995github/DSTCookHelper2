@@ -21,7 +21,7 @@
             <Image url="@../image/饥饿度.png" />
          </image>
       </ImageView>
-      <Label id="hunger" layoutX="194.0" layoutY="151.0" text="Label">
+      <Label fx:id="hunger" layoutX="194.0" layoutY="151.0" text="Label">
          <font>
             <Font size="13.0" />
          </font></Label>
