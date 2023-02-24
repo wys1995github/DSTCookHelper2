@@ -8,11 +8,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.dstch.util.ToolsUtil;
 
-public class MainView extends Application {
+public class InfoView extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		AnchorPane pane = new ToolsUtil().changeScene("/fxml/MainView.fxml");
+		AnchorPane pane = new ToolsUtil().changeScene("/fxml/cookedDishesView.fxml");
 		Scene scene = new Scene(pane, 470, 350);
 		primaryStage.setTitle("饥荒烹饪助手2.0");
 		primaryStage.setScene(scene);

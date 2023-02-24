@@ -1,22 +1,12 @@
 package main.java.dstch.controller;
 
-import java.awt.Label;
-import java.io.InputStream;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
-public class cookedDishesViewController {
+public class InfoViewController {
 	@FXML
     private Button backButton;
 
@@ -50,22 +40,18 @@ public class cookedDishesViewController {
     @FXML
     private GridPane cookedDishesGrid;
 	
-    
-    public void initialize(String string) {    
-     
+    public void initialize() {
+
+    	System.out.print("125125125");
     	
-    	string="肉丸";
-    	
+    	String string="肉丸";
     	cookedDishesName.setText(string);
     	cookedDisheshunger.setText("75");
     	cookedDishesHealth.setText("5");
     	cookedDishesSanity.setText("0");
     	//cookedDishesImage.setImage("/image/pot.png");
-    	cookTime.setText("");
     	   	
     	buff.setText("无");
     	comment.setText("无");
-       
-    	
     }
 }

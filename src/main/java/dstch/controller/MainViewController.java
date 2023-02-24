@@ -1,5 +1,7 @@
 package main.java.dstch.controller;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,14 +17,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import main.java.dstch.bean.CDBean;
 import main.java.dstch.service.MainService;
+import main.java.dstch.util.ToolsUtil;
 
 public class MainViewController {
 
-    @FXML
+	@FXML
+    private AnchorPane anchorPane;
+	
+	@FXML
     private RadioButton cdRadioBtn;
 
     @FXML
@@ -86,14 +93,20 @@ public class MainViewController {
 				rowNum++;
     		}
     		VBox vbox = new VBox();
-			Image img = cdDataList.get(i).getImage();
-			String name = cdDataList.get(i).getName();
+			CDBean cdBean = cdDataList.get(i);
+			Image img = cdBean.getImage();
+			String name = cdBean.getName();
 			Label label = new Label(name);
 			vbox.getChildren().add(new ImageView(img));
     		vbox.getChildren().add(label);
     		vbox.setAlignment(Pos.CENTER);
     		vbox.setOnMouseClicked(event -> {
     			if(event.getClickCount() == 2) {
+    				try {
+						anchorPane = new ToolsUtil().changeScene("/fxml/cookedDishesView.fxml");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
     				System.out.println(name);
     			}
     		});
@@ -104,5 +117,5 @@ public class MainViewController {
 		mainGrid.setPadding(new Insets(10));
         return mainGrid;
     }
-
+    
 }
