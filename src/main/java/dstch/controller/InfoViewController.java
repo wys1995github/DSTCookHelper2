@@ -3,8 +3,12 @@ package main.java.dstch.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import main.java.dstch.bean.CDBean;
+import main.java.dstch.view.SceneShow;
 
 public class InfoViewController {
 	@FXML
@@ -40,18 +44,29 @@ public class InfoViewController {
     @FXML
     private GridPane cookedDishesGrid;
 	
+    @FXML
     public void initialize() {
-
-    	System.out.print("125125125");
+    	CDBean cdBean = SceneShow.getInstance().getCdBean();
+    	String name = cdBean.getName();
+    	Image image = cdBean.getImage();
+    	float hunger = cdBean.getHunger();
+    	float sanity = cdBean.getSanity();
+    	float health = cdBean.getHealth();
+    	int qualityTime = cdBean.getQualityTime();
+    	int cookTime = cdBean.getCookTime();
+    	String buff = cdBean.getBuff();
+    	String comment = cdBean.getComment();
     	
-    	String string="肉丸";
-    	cookedDishesName.setText(string);
-    	cookedDisheshunger.setText("75");
-    	cookedDishesHealth.setText("5");
-    	cookedDishesSanity.setText("0");
-    	//cookedDishesImage.setImage("/image/pot.png");
-    	   	
-    	buff.setText("无");
-    	comment.setText("无");
+    	cookedDishesName.setText(name);
+    	cookedDishesImage.setImage(image);
+    	
     }
+    
+    @FXML
+    void backButtonClicked(MouseEvent event) {
+    	if(event.getClickCount() == 1) {
+			SceneShow.getInstance().toMainView();
+		}
+    }
+    
 }

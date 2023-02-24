@@ -1,7 +1,5 @@
 package main.java.dstch.controller;
 
-import java.io.IOException;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,8 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import main.java.dstch.bean.CDBean;
-import main.java.dstch.service.MainService;
-import main.java.dstch.util.ToolsUtil;
+import main.java.dstch.view.SceneShow;
 
 public class MainViewController {
 
@@ -84,7 +81,7 @@ public class MainViewController {
     
     private GridPane getImgGrid() {
     	GridPane mainGrid = new GridPane();
-    	ObservableList<CDBean> cdDataList = new MainService().getCDData();
+    	ObservableList<CDBean> cdDataList = SceneShow.getInstance().getCdDataList();
     	int colNum = 0;//列号
     	int rowNum = 0;//行号
     	for (int i = 0; i < cdDataList.size(); i++) {
@@ -102,12 +99,7 @@ public class MainViewController {
     		vbox.setAlignment(Pos.CENTER);
     		vbox.setOnMouseClicked(event -> {
     			if(event.getClickCount() == 2) {
-    				try {
-						anchorPane = new ToolsUtil().changeScene("/fxml/cookedDishesView.fxml");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-    				System.out.println(name);
+    				SceneShow.getInstance().toInfoView(cdBean);
     			}
     		});
     		mainGrid.add(vbox, colNum++, rowNum);
