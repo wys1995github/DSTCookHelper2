@@ -11,7 +11,7 @@ public class ImageUtil
 	public static String IMGPATH_POT = "/com/dstch/image/pot.png";
 	
 	public static Image binaryStream2Image(InputStream in) {
-		return new Image(in, 40, 40, false, false);
+		return new Image(in, 60, 60, false, false);
 	}
 
 //	public static Image getIconImage() {

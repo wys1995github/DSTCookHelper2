@@ -1,19 +1,24 @@
 package main.java.dstch.controller;
 
-import java.io.InputStream;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import main.java.dstch.bean.CDBean;
+import main.java.dstch.service.MainService;
 
 public class MainViewController {
 
@@ -30,9 +35,8 @@ public class MainViewController {
     private Button searchBtn;
 
     @FXML
-    private GridPane mainGrid;
+    private ScrollPane mainViewScrollPane;
     
-
     public void initialize() {
     	//设置料理和食材按钮互斥
     	ToggleGroup group = new ToggleGroup();
@@ -46,14 +50,9 @@ public class MainViewController {
         itemList.add("生命值");
         priorityBox.setItems(itemList);
         priorityBox.getSelectionModel().selectFirst();//默认选中第一项
-        //主页面下方料理grid显示图片
-        mainGrid.add(getImageView("/image/pot.png"), 0, 0);
-        mainGrid.add(getImageView("/image/pot.png"), 0, 1);
-        mainGrid.add(getImageView("/image/icon.png"), 0, 2);
-        mainGrid.add(getImageView("/image/icon.png"), 1, 0);
-        mainGrid.add(getImageView("/image/icon.png"), 1, 1);
-        mainGrid.add(getImageView("/image/icon.png"), 2, 1);
-        mainGrid.add(getImageView("/image/icon.png"), 2, 4);
+        //将Grid装载进ScrollPane
+        mainViewScrollPane.setContent(getImgGrid());
+        mainViewScrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
     
     @FXML
@@ -76,11 +75,34 @@ public class MainViewController {
 
     }
     
-    private ImageView getImageView(String imgPath) {
-    	ImageView imageView = new ImageView();
-        InputStream ips = getClass().getResourceAsStream(imgPath);
-        imageView.setImage(new Image(ips, 50, 50, false, false));
-    	return imageView;
+    private GridPane getImgGrid() {
+    	GridPane mainGrid = new GridPane();
+    	ObservableList<CDBean> cdDataList = new MainService().getCDData();
+    	int colNum = 0;//列号
+    	int rowNum = 0;//行号
+    	for (int i = 0; i < cdDataList.size(); i++) {
+    		if(i > 4 && i%5 == 0) {
+				colNum = 0;
+				rowNum++;
+    		}
+    		VBox vbox = new VBox();
+			Image img = cdDataList.get(i).getImage();
+			String name = cdDataList.get(i).getName();
+			Label label = new Label(name);
+			vbox.getChildren().add(new ImageView(img));
+    		vbox.getChildren().add(label);
+    		vbox.setAlignment(Pos.CENTER);
+    		vbox.setOnMouseClicked(event -> {
+    			if(event.getClickCount() == 2) {
+    				System.out.println(name);
+    			}
+    		});
+    		mainGrid.add(vbox, colNum++, rowNum);
+    	}
+    	mainGrid.setHgap(10);
+		mainGrid.setVgap(10);
+		mainGrid.setPadding(new Insets(10));
+        return mainGrid;
     }
 
 }
