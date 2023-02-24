@@ -8,14 +8,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.dstch.controller.MainViewController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.dstch.controller.MainViewController">
    <children>
       <RadioButton fx:id="cdRadioBtn" layoutX="17.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#cdRadioBtnClicked" prefHeight="23.0" prefWidth="57.0" text="料理" />
       <RadioButton fx:id="clRadioBtn" layoutX="74.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#clRadioBtnClicked" prefHeight="23.0" prefWidth="45.0" text="食材" />
       <Label layoutX="131.0" layoutY="17.0" prefHeight="23.0" prefWidth="38.0" text="优先度" />
       <ComboBox fx:id="priorityBox" layoutX="173.0" layoutY="17.0" prefHeight="23.0" prefWidth="78.0" />
-      <TextField layoutX="261.0" layoutY="17.0" prefHeight="23.0" prefWidth="109.0" />
-      <Button fx:id="searchBtn" layoutX="377.0" layoutY="17.0" mnemonicParsing="false" onKeyPressed="#searchBtnKeyPressed" onMouseClicked="#searchBtnClicked" prefHeight="23.0" prefWidth="78.0" text="搜索" />
+      <TextField fx:id="searchKeyText" layoutX="261.0" layoutY="17.0" prefHeight="23.0" prefWidth="109.0" />
+      <Button fx:id="searchBtn" layoutX="377.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#searchBtnClicked" prefHeight="23.0" prefWidth="78.0" text="搜索" />
       <ScrollPane fx:id="mainViewScrollPane" layoutX="15.0" layoutY="52.0" prefHeight="285.0" prefWidth="443.0" />
    </children>
 </AnchorPane>

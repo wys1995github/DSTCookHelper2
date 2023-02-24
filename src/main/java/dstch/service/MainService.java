@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.java.dstch.bean.CDBean;
+import main.java.dstch.bean.FIBean;
 import main.java.dstch.util.DBUtil;
 import main.java.dstch.util.ImageUtil;
 
@@ -36,8 +37,8 @@ public class MainService {
 					rs.getFloat("cd_health"),
 					rs.getInt("cd_qualityTime"),
 					rs.getInt("cd_cookTime"),
-					rs.getString("cd_comment"),
-					rs.getString("cd_buff")
+					rs.getString("cd_buff"),
+					rs.getString("cd_comment")
 				));
 			}
 		} catch (SQLException e){
@@ -50,102 +51,102 @@ public class MainService {
 		return cdDataList;
 	}
 
-//	public Vector<Vector<Object>> getCDData(String searchKey) {
-//		if(searchKey.equals(null) || "".equals(searchKey.trim())) {
-//			return getCDData();
-//		}
-//		conn = DBUtil.getConnection();
-//		String sql = "select * from t_cookedDishes where cd_name like ? ";
-//		Vector<Vector<Object>> tableData = new Vector<>();
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			ps.setString(1, "%" + searchKey + "%");
-//			rs = ps.executeQuery();
-//			int cd_num = 1;
-//			while(rs.next()) {
-//				Vector<Object> oneData = new Vector<>();
-//				oneData.addElement(cd_num++);
-//				oneData.addElement(ImageUtil.loadImage(rs.getBinaryStream("cd_image")));
-//				oneData.addElement(rs.getString("cd_name"));
-//				oneData.addElement(rs.getFloat("cd_hunger"));
-//				oneData.addElement(rs.getFloat("cd_sanity"));
-//				oneData.addElement(rs.getFloat("cd_health"));
-//				oneData.addElement(rs.getString("cd_buff"));
-//				oneData.addElement(rs.getString("cd_comment"));
-//				tableData.addElement(oneData);
-//			}
-//		} catch (SQLException e){
-//			e.printStackTrace();
-//		} finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            DBUtil.closeConnection(conn);
-//		}
-//		return tableData;
-//	}
-//
-//	public Vector<Vector<Object>> getFIData() {
-//		conn = DBUtil.getConnection();
-//		String sql = "select * from t_foodIngredients; ";
-//		Vector<Vector<Object>> tableData = new Vector<>();
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			rs = ps.executeQuery();
-//			int fi_num = 1;
-//			while(rs.next()) {
-//				Vector<Object> oneData = new Vector<>();
-//				oneData.addElement(fi_num++);
-//				oneData.addElement(ImageUtil.loadImage(rs.getBinaryStream("fi_image")));
-//				oneData.addElement(rs.getString("fi_name"));
-//				oneData.addElement(rs.getFloat("fi_hunger"));
-//				oneData.addElement(rs.getFloat("fi_sanity"));
-//				oneData.addElement(rs.getFloat("fi_health"));
-//				oneData.addElement(rs.getString("fi_qualityTime"));
-//				oneData.addElement(rs.getString("fi_comment"));
-//				tableData.addElement(oneData);
-//			}
-//		} catch (SQLException e){
-//			e.printStackTrace();
-//		} finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            DBUtil.closeConnection(conn);
-//		}
-//		return tableData;
-//	}
-//
-//	public Vector<Vector<Object>> getFIData(String searchKey) {
-//		if(searchKey.equals(null) || "".equals(searchKey.trim())) {
-//			return getFIData();
-//		}
-//		conn = DBUtil.getConnection();
-//		String sql = "select * from t_foodIngredients where fi_name like ?  ";
-//		Vector<Vector<Object>> tableData = new Vector<>();
-//		try {
-//			ps = conn.prepareStatement(sql);
-//			ps.setString(1, "%" + searchKey + "%");
-//			rs = ps.executeQuery();
-//			int fi_num = 1;
-//			while(rs.next()) {
-//				Vector<Object> oneData = new Vector<>();
-//				oneData.addElement(fi_num++);
-//				oneData.addElement(ImageUtil.loadImage(rs.getBinaryStream("fi_image")));
-//				oneData.addElement(rs.getString("fi_name"));
-//				oneData.addElement(rs.getFloat("fi_hunger"));
-//				oneData.addElement(rs.getFloat("fi_sanity"));
-//				oneData.addElement(rs.getFloat("fi_health"));
-//				oneData.addElement(rs.getString("fi_qualityTime"));
-//				oneData.addElement(rs.getString("fi_comment"));
-//				tableData.addElement(oneData);
-//			}
-//		} catch (SQLException e){
-//			e.printStackTrace();
-//		} finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            DBUtil.closeConnection(conn);
-//		}
-//		return tableData;
-//	}
+	public ObservableList<CDBean> getCDData(String searchKey) {
+		conn = DBUtil.getConnection();
+		String sql = "select * from t_cookedDishes where cd_name like ? ";
+		ObservableList<CDBean> cdDataList = FXCollections.observableArrayList();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + searchKey + "%");
+			rs = ps.executeQuery();
+			int cd_num = 1;
+			while(rs.next()) {
+				cdDataList.add(new CDBean(
+					cd_num++,
+					rs.getString("cd_name"),
+					ImageUtil.binaryStream2Image(rs.getBinaryStream("cd_image")),
+					rs.getFloat("cd_hunger"),
+					rs.getFloat("cd_sanity"),
+					rs.getFloat("cd_health"),
+					rs.getInt("cd_qualityTime"),
+					rs.getInt("cd_cookTime"),
+					rs.getString("cd_buff"),
+					rs.getString("cd_comment")
+				));
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            DBUtil.closeConnection(conn);
+		}
+		return cdDataList;
+	}
+
+	public ObservableList<FIBean> getFIData() {
+		conn = DBUtil.getConnection();
+		String sql = "select * from t_foodIngredients; ";
+		ObservableList<FIBean> fiDataList = FXCollections.observableArrayList();
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			int fi_num = 1;
+			while(rs.next()) {
+				fiDataList.add(new FIBean(
+					fi_num++,
+					rs.getString("fi_name"),
+					rs.getString("fi_type"),
+					rs.getFloat("fi_degree"),
+					ImageUtil.binaryStream2Image(rs.getBinaryStream("fi_image")),
+					rs.getFloat("fi_hunger"),
+					rs.getFloat("fi_sanity"),
+					rs.getFloat("fi_health"),
+					rs.getInt("fi_qualityTime"),
+					rs.getString("fi_comment")
+				));
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            DBUtil.closeConnection(conn);
+		}
+		return fiDataList;
+	}
+
+	public ObservableList<FIBean> getFIData(String searchKey) {
+		conn = DBUtil.getConnection();
+		String sql = "select * from t_foodIngredients where fi_name like ? ";
+		ObservableList<FIBean> fiDataList = FXCollections.observableArrayList();
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + searchKey + "%");
+			rs = ps.executeQuery();
+			int fi_num = 1;
+			while(rs.next()) {
+				fiDataList.add(new FIBean(
+					fi_num++,
+					rs.getString("fi_name"),
+					rs.getString("fi_type"),
+					rs.getFloat("fi_degree"),
+					ImageUtil.binaryStream2Image(rs.getBinaryStream("fi_image")),
+					rs.getFloat("fi_hunger"),
+					rs.getFloat("fi_sanity"),
+					rs.getFloat("fi_health"),
+					rs.getInt("fi_qualityTime"),
+					rs.getString("fi_comment")
+				));
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		} finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            DBUtil.closeConnection(conn);
+		}
+		return fiDataList;
+	}
 
 }

@@ -18,24 +18,23 @@ public class InfoService{
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
-	public ObservableList<CLBean> getInfoData(String searchKey) {
-		String sql = " select cl_item1, cl_item2, cl_item3, cl_item4 "
-				+ "from t_compositeList where cl_name = ? ";
+	public ObservableList<CLBean> getInfoData(String foodName) {
+		String sql = " select * from t_compositeList where cl_name = ? ";
 		ObservableList<CLBean> clDataList = FXCollections.observableArrayList();
 		try {
 			ps = conn.prepareStatement(sql.toString());
-			ps.setString(1, "%" + searchKey + "%");
+			ps.setString(1, foodName);
 			rs = ps.executeQuery();
 			int cl_num = 1;
 			while(rs.next()) {
-				String cdName = rs.getString("cl_name");
+				String clName = rs.getString("cl_name");
 				String item1Name = rs.getString("cl_item1");
 				String item2Name = rs.getString("cl_item2");
 				String item3Name = rs.getString("cl_item3");
 				String item4Name = rs.getString("cl_item4");
 				clDataList.add(new CLBean(
 					cl_num++,
-					cdName,
+					clName,
 					item1Name,
 					item2Name,
 					item3Name,
@@ -72,5 +71,9 @@ public class InfoService{
 		}
 		return image;
 	}
+	
+//	public static void main(String[] args) {
+//		new InfoService().getInfoData("肉丸");
+//	}
 	
 }

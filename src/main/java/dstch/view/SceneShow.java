@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.java.dstch.bean.CDBean;
+import main.java.dstch.bean.FIBean;
 import main.java.dstch.service.MainService;
 
 public class SceneShow {
@@ -14,6 +15,7 @@ public class SceneShow {
 	private Stage stage;
 	private CDBean cdBean;
 	private ObservableList<CDBean> cdDataList = null;
+	private ObservableList<FIBean> fiDataList = null;
 
 	private static SceneShow instance = new SceneShow();
 	
@@ -58,6 +60,16 @@ public class SceneShow {
 	private void setCdDataList(ObservableList<CDBean> cdDataList) {
 		if(this.cdDataList == null) {
 			this.cdDataList = cdDataList;
+		}
+	}
+	
+	public ObservableList<FIBean> getFiDataList() {
+		return fiDataList;
+	}
+
+	public void setFiDataList(ObservableList<FIBean> fiDataList) {
+		if(this.fiDataList == null) {
+			this.fiDataList = fiDataList;
 		}
 	}
 
