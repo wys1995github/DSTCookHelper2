@@ -5,11 +5,8 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import main.java.dstch.bean.CDBean;
 
 public class InfoView {
-
-	private CDBean cdBean;
 
 	public static void load(Stage stage) {
 		try {
@@ -18,14 +15,6 @@ public class InfoView {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public CDBean getCdBean() {
-		return cdBean;
-	}
-
-	public void setCdBean(CDBean cdBean) {
-		this.cdBean = cdBean;
 	}
 
 }

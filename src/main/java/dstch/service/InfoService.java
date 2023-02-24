@@ -7,8 +7,10 @@ import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 import main.java.dstch.bean.CLBean;
 import main.java.dstch.util.DBUtil;
+import main.java.dstch.util.ImageUtil;
 
 public class InfoService{
 
@@ -26,13 +28,22 @@ public class InfoService{
 			rs = ps.executeQuery();
 			int cl_num = 1;
 			while(rs.next()) {
+				String cdName = rs.getString("cl_name");
+				String item1Name = rs.getString("cl_item1");
+				String item2Name = rs.getString("cl_item2");
+				String item3Name = rs.getString("cl_item3");
+				String item4Name = rs.getString("cl_item4");
 				clDataList.add(new CLBean(
 					cl_num++,
-					rs.getString("cl_name"),
-					rs.getString("cl_item1"),
-					rs.getString("cl_item2"),
-					rs.getString("cl_item3"),
-					rs.getString("cl_item4")
+					cdName,
+					item1Name,
+					item2Name,
+					item3Name,
+					item4Name,
+					getImage4Name(item1Name),
+					getImage4Name(item2Name),
+					getImage4Name(item3Name),
+					getImage4Name(item4Name)
 				));
 			}
 		} catch (SQLException e){
@@ -45,22 +56,21 @@ public class InfoService{
 		return clDataList;
 	}
 	
-//	private Icon getIconAsItem(String itemName) {
-//		String sql = " select fi_image from t_foodIngredients where fi_name = ? ";
-//		ResultSet rs = null;
-//		Icon icon = null;
-//		try {
-//			ps = conn.prepareStatement(sql.toString());
-//			ps.setString(1, itemName);
-//			rs = ps.executeQuery();
-//			while(rs.next()) {
-//				icon = ImageUtil.loadImage(rs.getBinaryStream("fi_image"));
-//			}
-//			return icon;
-//		} catch (SQLException e){
-//			e.printStackTrace();
-//		}
-//		return icon;
-//	}
+	private Image getImage4Name(String itemName) {
+		String sql = " select fi_image from t_foodIngredients where fi_name = ? ";
+		rs = null;
+		Image image = null;
+		try {
+			ps = conn.prepareStatement(sql.toString());
+			ps.setString(1, itemName);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				image = ImageUtil.binaryStream2Image(rs.getBinaryStream("fi_image"));
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return image;
+	}
 	
 }
