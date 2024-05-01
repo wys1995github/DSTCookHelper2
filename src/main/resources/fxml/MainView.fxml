@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.dstch.controller.MainViewController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="470.0">
+         <image>
+            <Image url="@../image/主界面.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="typeImage" fitHeight="33.0" fitWidth="135.0" layoutX="18.0" layoutY="3.0">
+         <image>
+            <Image url="@../image/料理按钮.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="cdBtn" layoutX="28.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#cdBtnClicked" prefHeight="25.0" prefWidth="55.0" text="料理" />
+      <Button fx:id="fiBtn" layoutX="87.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#fiBtnClicked" prefHeight="25.0" prefWidth="55.0" text="食材" />
+      <ImageView fx:id="orderImageLeft" fitHeight="25.0" fitWidth="25.0" layoutX="158.0" layoutY="6.0">
+         <image>
+            <Image url="@../image/左箭头灰.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="orderBtnLeft" layoutX="158.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#orderBtnLeftClicked" prefHeight="25.0" prefWidth="17.0" text="左" />
+      <Label fx:id="orderLabel" alignment="CENTER" layoutX="184.0" layoutY="6.0" prefHeight="23.0" prefWidth="48.0" text="饥饿值" textFill="#f2d67c">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="14.0" />
+         </font></Label>
+      <ImageView fx:id="orderImageRight" fitHeight="25.0" fitWidth="25.0" layoutX="233.0" layoutY="6.0">
+         <image>
+            <Image url="@../image/右箭头黄.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="orderBtnRight" layoutX="233.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#orderBtnRightClicked" prefHeight="25.0" prefWidth="17.0" text="右" />
+      <ImageView fitHeight="33.0" fitWidth="117.0" layoutX="266.0" layoutY="2.0">
+         <image>
+            <Image url="@../image/搜索框.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="searchKeyText" layoutX="274.0" layoutY="7.0" prefHeight="23.0" prefWidth="103.0" />
+      <ImageView fx:id="searchImage" fitHeight="40.0" fitWidth="38.0" layoutX="382.0" layoutY="-2.0" onMouseClicked="#searchImageClicked" onMouseEntered="#searchImageEntered" onMouseExited="#searchImageExited">
+         <image>
+            <Image url="@../image/搜索按钮.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="exitImage" fitHeight="36.0" fitWidth="36.0" layoutX="419.0" onMouseClicked="#exitImageClicked" onMouseEntered="#exitImageEntered" onMouseExited="#exitImageExited">
+         <image>
+            <Image url="@../image/exitBtn.png" />
+         </image>
+      </ImageView>
+      <ScrollPane fx:id="mainViewScrollPane" layoutX="15.0" layoutY="46.0" prefHeight="285.0" prefWidth="443.0" />
+   </children>
+</AnchorPane>

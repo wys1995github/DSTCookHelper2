@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main.java.dstch.dao.CDBeanDao">
+    <select id="getFoodData" resultType="java.util.HashMap">
+        select * from t_cookedDishes where cd_name in
+        (select distinct cl_name from t_compositeList
+        where cl_item1 = #{fiName} or cl_item2 = #{fiName} or cl_item3 = #{fiName} or cl_item4 = #{fiName})
+    </select>
+</mapper>

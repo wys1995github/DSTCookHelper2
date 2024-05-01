@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="470.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.dstch.controller.FoodViewController">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="470.0">
+         <image>
+            <Image url="@../image/食材详细页面.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backImage" fitHeight="40.0" fitWidth="60.0" layoutX="18.0" layoutY="14.0" onMouseClicked="#backImageMouseClicked" onMouseEntered="#backImageMouseEntered" onMouseExited="#backImageMouseExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/返回按钮未选中.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cdImage" fitHeight="80.0" fitWidth="80.0" layoutX="62.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="TOP" layoutX="45.0" layoutY="115.0" prefHeight="25.0" prefWidth="111.0" text="名称">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="159.0" layoutY="31.0">
+         <image>
+            <Image url="@../image/饥饿度.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="hungerLabel" alignment="CENTER" layoutX="164.0" layoutY="78.0" prefHeight="20.0" prefWidth="60.0" text="饥饿值">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="251.0" layoutY="32.0">
+         <image>
+            <Image url="@../image/精神度.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="sanityLabel" alignment="CENTER" contentDisplay="TOP" layoutX="256.0" layoutY="78.0" prefHeight="20.0" prefWidth="60.0" text="精神值">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="340.0" layoutY="32.0">
+         <image>
+            <Image url="@../image/生命值.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="healthLabel" alignment="CENTER" layoutX="345.0" layoutY="78.0" prefHeight="20.0" prefWidth="60.0" text="生命值">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="165.0" layoutY="105.0">
+         <image>
+            <Image url="@../image/腐烂物.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="qualityTimeLabel" alignment="CENTER" layoutX="211.0" layoutY="113.0" prefHeight="24.0" prefWidth="45.0" text="--">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="259.0" layoutY="114.0" text="天">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ImageView fx:id="commentImage" fitHeight="30.0" fitWidth="30.0" layoutX="299.0" layoutY="108.0">
+         <image>
+            <Image url="@../image/备注.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="commentLabel" layoutX="340.0" layoutY="109.0" prefHeight="30.0" prefWidth="111.0" text="无">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ImageView fx:id="typeImage" fitHeight="40.0" fitWidth="40.0" layoutX="356.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="degreeLabel" layoutX="409.0" layoutY="173.0" text="--" />
+      <Label layoutX="428.0" layoutY="171.0" text="度">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="foodTablePane" layoutX="45.0" layoutY="169.0" prefHeight="150.0" prefWidth="300.0" />
+      <ImageView id="exitImage" fx:id="exitImage" fitHeight="25.0" fitWidth="25.0" layoutX="424.0" layoutY="17.0" onMouseClicked="#exitImageClicked" onMouseEntered="#exitImageEntered" onMouseExited="#exitImageExited">
+         <image>
+            <Image url="@../image/退出按钮.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back2MainViewImage" fitHeight="25.0" fitWidth="30.0" layoutX="390.0" layoutY="17.0" onMouseClicked="#back2MainViewImageClicked" onMouseEntered="#back2MainViewImageEntered" onMouseExited="#back2MainViewImageExited">
+         <image>
+            <Image url="@../image/返回主界面按钮.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="hungerImgLabel" layoutX="355.0" layoutY="205.0" onMouseClicked="#hungerImgLabelClicked" prefHeight="30.0" prefWidth="80.0" text="饥饿值">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="sanityImgLabel" layoutX="355.0" layoutY="240.0" onMouseClicked="#sanityImgLabelClicked" prefHeight="30.0" prefWidth="80.0" text="精神值">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="healthImgLabel" layoutX="355.0" layoutY="275.0" onMouseClicked="#healthImgLabelClicked" prefHeight="30.0" prefWidth="80.0" text="生命值">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
